@@ -26,6 +26,5 @@ RUN composer config --global github-oauth.github.com $COMPOSER_GITHUB_TOKEN
 RUN wget https://github.com/robbyrussell/oh-my-zsh/raw/master/tools/install.sh -O - | zsh
 RUN echo 'export ZSH=/home/docker/.oh-my-zsh' > ~/.zshrc \
     && echo 'ZSH_THEME="simple"' >> ~/.zshrc \
-    && echo 'plugins=(npm)' >> ~/.zshrc \
     && echo 'source $ZSH/oh-my-zsh.sh' >> ~/.zshrc \
-    && echo 'PROMPT="%{$fg_bold[yellow]%}php_cli@docker_monitor %{$fg_bold[blue]%}%(!.%1~.%~)%{$reset_color%} "' > ~/.oh-my-zsh/themes/simple.zsh-theme
+    && echo 'PROMPT="%{$fg_bold[yellow]%}php@docker %{$fg_bold[blue]%}%(!.%1~.%~)%{$reset_color%} "' > ~/.oh-my-zsh/themes/simple.zsh-theme
