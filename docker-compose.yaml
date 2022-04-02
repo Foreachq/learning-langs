@@ -29,6 +29,7 @@ services:
     # depends_on:
     #   - database
     volumes:
+      - ./docker/php/php.ini:/usr/local/etc/php/php.ini
       - ./docker/.zsh_history:/home/docker/.zsh_history
       - ./:/srv/app
     restart: always
