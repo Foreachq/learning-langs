@@ -34,6 +34,22 @@ services:
       - ./:/srv/app
     restart: always
 
+  php-without-xdebug:
+    build:
+      context: .
+      dockerfile: docker/php/without-xdebug.Dockerfile
+      args:
+        COMPOSER_GITHUB_TOKEN: ${COMPOSER_GITHUB_TOKEN}
+        LINUX_USER_ID: ${LINUX_USER_ID}
+    tty: true
+    # depends_on:
+    #   - database
+    volumes:
+      - ./docker/php/php.ini:/usr/local/etc/php/php.ini
+      - ./docker/.zsh_history:/home/docker/.zsh_history
+      - ./:/srv/app
+    restart: always
+
   nginx:
     image: nginx:1.21-alpine
     volumes:
@@ -41,6 +57,7 @@ services:
       - ./public/:/srv/app/public
     depends_on:
       - php
+      - php-without-xdebug
     ports:
       - '8041:80'
     restart: always
