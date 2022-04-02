@@ -4,6 +4,7 @@
 		"../docker-compose.yaml",
 	],
 	"runServices": [
+		"database",
 		"php",
 		"php-without-xdebug",
 		"nginx",
@@ -26,6 +27,7 @@
 		"bmewburn.vscode-intelephense-client",
 		"valeryanm.vscode-phpsab",
 		"ikappas.phpcs",
+		"ckolkman.vscode-postgres",
 	],
 	"settings": {
 		"[php]": {
