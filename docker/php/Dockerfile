@@ -6,6 +6,7 @@ RUN apk update \
     && apk add --no-cache \
         git \
         zsh \
+        openssh-client \
     && pecl install xdebug-3.1.3 \
     && docker-php-ext-enable xdebug \
     && pecl clear-cache \
