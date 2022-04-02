@@ -12,6 +12,8 @@ RUN apk update \
     && rm -rf /tmp/* /var/cache/apk/* \
     && apk del .build-deps
 
+COPY ./docker/php/php.ini /usr/local/etc/php/php.ini
+
 ARG LINUX_USER_ID
 
 RUN addgroup --gid $LINUX_USER_ID docker \
