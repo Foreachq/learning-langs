@@ -1,0 +1,12 @@
+{
+    "[php]": {
+        "editor.defaultFormatter": "valeryanm.vscode-phpsab",
+        "editor.formatOnSave": true,
+    },
+    "phpsab.snifferEnable": false,
+    "phpsab.fixerEnable": true,
+    "phpsab.autoRulesetSearch": false,
+    "phpcs.standard": "./phpcs.xml",
+    "phpsab.standard": "./phpcs.xml",
+    "phpsab.snifferMode": "onType",
+}
