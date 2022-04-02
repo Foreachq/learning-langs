@@ -1,5 +1,5 @@
 <?xml version="1.0"?>
-<ruleset name="The PHP project LVL 3 coding standard">
+<ruleset name="Learning languages coding standard">
     <rule ref="PSR12"/>
     <rule ref="Generic.Formatting.SpaceAfterCast.NoSpace"/>
     <rule ref="Squiz.Arrays.ArrayDeclaration">
@@ -13,4 +13,9 @@
     <config name="installed_paths" value="../../slevomat/coding-standard"/>
     <rule ref="SlevomatCodingStandard.Namespaces.UnusedUses.UnusedUse"/>
     <rule ref="SlevomatCodingStandard.Namespaces.AlphabeticallySortedUses"/>
+    <rule ref="SlevomatCodingStandard.TypeHints.DeclareStrictTypes">
+        <properties>
+            <property name="spacesCountAroundEqualsSign" value="0"/>
+        </properties>
+    </rule>
 </ruleset>
