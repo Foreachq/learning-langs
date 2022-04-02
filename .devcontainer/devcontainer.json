@@ -1,0 +1,69 @@
+{
+	"name": "Existing Docker Compose",
+	"dockerComposeFile": [
+		"../docker-compose.yaml",
+	],
+	"runServices": [
+		"php",
+		"php-without-xdebug",
+		"nginx",
+	],
+	"service": "php",
+	"shutdownAction": "none",
+	"workspaceFolder": "/srv/app",
+	"extensions": [
+		"ms-azuretools.vscode-docker",
+		"mhutchie.git-graph",
+		"donjayamanne.githistory",
+		"eamodio.gitlens",
+		"jack89ita.open-file-from-path",
+		"mikestead.dotenv",
+		"ahmadalli.vscode-nginx-conf",
+		"redhat.vscode-yaml",
+		"aaron-bond.better-comments",
+		"neilbrayfield.php-docblocker",
+		"xdebug.php-debug",
+		"bmewburn.vscode-intelephense-client",
+		"valeryanm.vscode-phpsab",
+		"ikappas.phpcs",
+	],
+	"settings": {
+		"[php]": {
+			"editor.defaultFormatter": "valeryanm.vscode-phpsab",
+			"editor.formatOnSave": true,
+		},
+		"workbench.tree.indent": 20,
+		"workbench.colorTheme": "Default Light+",
+		"workbench.colorCustomizations": {
+			"editorRuler.foreground": "#ff408083",
+		},
+		"editor.rulers": [120],
+		"editor.minimap.enabled": false,
+		"redhat.telemetry.enabled": false,
+		"terminal.integrated.defaultProfile.linux": "zsh",
+		// "terminal.integrated.profiles.linux": {
+		// 	"bash (login)": {
+		// 		"path": "bash",
+		// 		"args": ["-l"],
+		// 	}
+		// },
+		"gitlens.codeLens.authors.enabled": false,
+		"gitlens.codeLens.recentChange.enabled": false,
+		"phpcs.executablePath": "./vendor/bin/phpcs",
+		"phpcs.standard": "./phpcs.xml",
+		"phpsab.snifferEnable": false,
+		"phpsab.fixerEnable": true,
+		"phpsab.autoRulesetSearch": false,
+		"phpsab.standard": "./phpcs.xml",
+		"phpsab.snifferMode": "onType",
+	}
+
+	// Use 'forwardPorts' to make a list of ports inside the container available locally.
+	// "forwardPorts": [],
+
+	// Uncomment the next line to run commands after the container is created - for example installing curl.
+	// "postCreateCommand": "apt-get update && apt-get install -y curl",
+
+	// Uncomment to connect as a non-root user if you've added one. See https://aka.ms/vscode-remote/containers/non-root.
+	// "remoteUser": "vscode",
+}
