@@ -4,6 +4,7 @@ RUN apk update \
     && apk add --no-cache --virtual .build-deps \
         $PHPIZE_DEPS \
     && apk add --no-cache \
+        make \
         git \
         zsh \
         openssh-client \
