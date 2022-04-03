@@ -23,6 +23,7 @@
 		"redhat.vscode-yaml",
 		"aaron-bond.better-comments",
 		"neilbrayfield.php-docblocker",
+		"MehediDracula.php-namespace-resolver",
 		"xdebug.php-debug",
 		"bmewburn.vscode-intelephense-client",
 		"valeryanm.vscode-phpsab",
@@ -41,14 +42,11 @@
 		},
 		"editor.rulers": [120],
 		"editor.minimap.enabled": false,
+		"editor.quickSuggestions": {
+			"comments": true,
+		},
 		"redhat.telemetry.enabled": false,
 		"terminal.integrated.defaultProfile.linux": "zsh",
-		// "terminal.integrated.profiles.linux": {
-		// 	"bash (login)": {
-		// 		"path": "bash",
-		// 		"args": ["-l"],
-		// 	}
-		// },
 		"gitlens.codeLens.authors.enabled": false,
 		"gitlens.codeLens.recentChange.enabled": false,
 		"phpcs.executablePath": "./vendor/bin/phpcs",
