@@ -23,11 +23,13 @@
 		"redhat.vscode-yaml",
 		"aaron-bond.better-comments",
 		"neilbrayfield.php-docblocker",
-		"MehediDracula.php-namespace-resolver",
-		"xdebug.php-debug",
-		"bmewburn.vscode-intelephense-client",
+		// "MehediDracula.php-namespace-resolver",
+		// "xdebug.php-debug",
+		// "bmewburn.vscode-intelephense-client",
+		"DEVSENSE.phptools-vscode",
 		"valeryanm.vscode-phpsab",
 		"ikappas.phpcs",
+		// "TheNouillet.symfony-vscode",
 		"ckolkman.vscode-postgres",
 	],
 	"settings": {
@@ -56,6 +58,7 @@
 		"phpsab.autoRulesetSearch": false,
 		"phpsab.standard": "./phpcs.xml",
 		"phpsab.snifferMode": "onType",
+		// "symfony-vscode.phpExecutablePath": "/usr/local/bin/php",
 	}
 
 	// Use 'forwardPorts' to make a list of ports inside the container available locally.

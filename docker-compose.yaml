@@ -61,7 +61,7 @@ services:
     restart: always
 
 volumes:
-    pgdata_14_2:
+  pgdata_14_2:
 
 networks:
   default:
