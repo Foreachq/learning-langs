@@ -29,7 +29,6 @@
 		"DEVSENSE.phptools-vscode",
 		"valeryanm.vscode-phpsab",
 		"ikappas.phpcs",
-		// "TheNouillet.symfony-vscode",
 		"ckolkman.vscode-postgres",
 	],
 	"settings": {
@@ -53,12 +52,17 @@
 		"gitlens.codeLens.recentChange.enabled": false,
 		"phpcs.executablePath": "./vendor/bin/phpcs",
 		"phpcs.standard": "./phpcs.xml",
+		"php.problems.exclude": {
+			"vendor/**": true,
+			"var/**": true,
+		},
 		"phpsab.snifferEnable": false,
 		"phpsab.fixerEnable": true,
 		"phpsab.autoRulesetSearch": false,
 		"phpsab.standard": "./phpcs.xml",
 		"phpsab.snifferMode": "onType",
-		// "symfony-vscode.phpExecutablePath": "/usr/local/bin/php",
+		// "phpTools.language": "ru",
+		// "php.codeLens.enabled": false,
 	}
 
 	// Use 'forwardPorts' to make a list of ports inside the container available locally.
