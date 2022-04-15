@@ -7,47 +7,34 @@ namespace App\Entity;
 use App\Repository\UserRepository;
 use Doctrine\DBAL\Types\Types;
 use Doctrine\ORM\Mapping as ORM;
+use Ramsey\Uuid\Uuid;
 use RuntimeException;
 use Symfony\Component\Security\Core\User\PasswordAuthenticatedUserInterface;
 use Symfony\Component\Security\Core\User\UserInterface;
 
 #[ORM\Entity(repositoryClass: UserRepository::class)]
-#[ORM\Table(name: '`user`')]
+#[ORM\Table(name: 'users')]
 class User implements UserInterface, PasswordAuthenticatedUserInterface
 {
     #[ORM\Id]
-    #[ORM\GeneratedValue(strategy: 'IDENTITY')]
-    #[ORM\Column(type: Types::INTEGER)]
-    private ?int $id = null;
+    #[ORM\Column(type: Types::STRING)]
+    public readonly string $id;
 
     #[ORM\Column(type: Types::STRING, length: 180, unique: true)]
-    private string $email;
+    public readonly string $email;
 
     #[ORM\Column(type: Types::STRING)]
-    private string $password;
+    public string $password;
 
-    private ?string $plainPassword = null;
-
-    public function getId(): ?int
+    public function __construct(string $email)
     {
-        return $this->id;
-    }
-
-    public function getEmail(): string
-    {
-        return $this->email;
-    }
-
-    public function setEmail(string $email): self
-    {
+        $this->id = Uuid::uuid4()->toString();
         $this->email = $email;
-
-        return $this;
     }
 
     public function getUserIdentifier(): string
     {
-        return $this->getEmail();
+        return $this->email;
     }
 
     public function getUsername(): string
@@ -65,25 +52,6 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
         return $this->password;
     }
 
-    public function setPassword(string $password): self
-    {
-        $this->password = $password;
-
-        return $this;
-    }
-
-    public function getPlainPassword(): ?string
-    {
-        return $this->plainPassword;
-    }
-
-    public function setPlainPassword(?string $plainPassword): self
-    {
-        $this->plainPassword = $plainPassword;
-
-        return $this;
-    }
-
     public function getSalt(): ?string
     {
         return null;
@@ -91,6 +59,5 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
 
     public function eraseCredentials(): void
     {
-        $this->setPlainPassword(null);
     }
 }
