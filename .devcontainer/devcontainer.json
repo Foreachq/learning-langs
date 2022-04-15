@@ -29,7 +29,6 @@
 		"DEVSENSE.phptools-vscode",
 		"valeryanm.vscode-phpsab",
 		"ikappas.phpcs",
-		"ckolkman.vscode-postgres",
 	],
 	"settings": {
 		"[php]": {

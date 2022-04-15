@@ -11,7 +11,6 @@
         "doctrine/doctrine-bundle": "^2.6",
         "doctrine/doctrine-migrations-bundle": "^3.2",
         "doctrine/orm": "^2.11",
-        "ramsey/uuid": "^4.3",
         "symfony/console": "5.4.*",
         "symfony/dotenv": "5.4.*",
         "symfony/flex": "^2.1",
@@ -19,6 +18,7 @@
         "symfony/proxy-manager-bridge": "5.4.*",
         "symfony/runtime": "5.4.*",
         "symfony/security-bundle": "5.4.*",
+        "symfony/uid": "5.4.*",
         "symfony/yaml": "5.4.*"
     },
     "require-dev": {
@@ -26,7 +26,8 @@
         "squizlabs/php_codesniffer": "^3.6",
         "symfony/maker-bundle": "^1.38",
         "symfony/stopwatch": "5.4.*",
-        "symfony/web-profiler-bundle": "5.4.*"
+        "symfony/web-profiler-bundle": "5.4.*",
+        "theofidry/psysh-bundle": "^4.5"
     },
     "config": {
         "allow-plugins": {
