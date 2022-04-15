@@ -6,6 +6,8 @@ namespace App\Traits;
 
 use RuntimeException;
 
+use function sprintf;
+
 trait UserTrait
 {
     public function getUserIdentifier(): string

@@ -18,6 +18,21 @@
             <property name="spacesCountAroundEqualsSign" value="0"/>
         </properties>
     </rule>
+    <rule ref="SlevomatCodingStandard.Namespaces.ReferenceUsedNamesOnly">
+        <properties>
+            <property name="allowFullyQualifiedGlobalClasses" value="false"/>
+            <!-- Internal functions MUST be imported. -->
+            <property name="allowFallbackGlobalFunctions" value="false"/>
+            <property name="allowFullyQualifiedGlobalFunctions" value="false"/>
+            <!-- Internal constants MUST be imported. -->
+            <property name="allowFallbackGlobalConstants" value="false"/>
+            <property name="allowFullyQualifiedGlobalConstants" value="false"/>
+            <property name="allowFullyQualifiedNameForCollidingClasses" value="true"/>
+            <property name="allowFullyQualifiedNameForCollidingConstants" value="true"/>
+            <property name="allowFullyQualifiedNameForCollidingFunctions" value="true"/>
+            <property name="searchAnnotations" value="true"/>
+        </properties>
+    </rule>
 
     <exclude-pattern>*/vendor/*</exclude-pattern>
     <exclude-pattern>*/var/*</exclude-pattern>
