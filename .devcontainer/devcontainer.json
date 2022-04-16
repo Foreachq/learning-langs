@@ -29,6 +29,7 @@
 		"DEVSENSE.phptools-vscode",
 		"valeryanm.vscode-phpsab",
 		"ikappas.phpcs",
+		"mblode.twig-language",
 	],
 	"settings": {
 		"[php]": {
