@@ -2,10 +2,10 @@
 
 declare(strict_types=1);
 
-namespace App\Entity;
+namespace App\Security\Entity;
 
-use App\Repository\UserRepository;
-use App\Traits\UserTrait;
+use App\Security\Repository\UserRepository;
+use App\Security\Traits\UserTrait;
 use Doctrine\DBAL\Types\Types;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Security\Core\User\PasswordAuthenticatedUserInterface;

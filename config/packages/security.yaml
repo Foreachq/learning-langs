@@ -2,14 +2,14 @@ security:
     enable_authenticator_manager: true
 
     password_hashers:
-        App\Entity\User:
+        App\Security\Entity\User:
             algorithm: sodium
 
     providers:
         # used to reload user from session & other features (e.g. switch_user)
         app_user_provider:
             entity:
-                class: App\Entity\User
+                class: App\Security\Entity\User
                 property: email
 
     firewalls:
@@ -43,5 +43,5 @@ security:
 when@test:
     security:
         password_hashers:
-            App\Entity\User:
+            App\Security\Entity\User:
                 algorithm: plaintext
