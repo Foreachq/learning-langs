@@ -1,5 +1,5 @@
 docker-up: docker-down
-	@touch docker/.zsh_history
+	@touch .docker/.zsh_history
 	docker-compose up -d --build
 
 docker-down:
