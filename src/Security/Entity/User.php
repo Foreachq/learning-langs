@@ -22,10 +22,11 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     public readonly string $email;
 
     #[ORM\Column(type: Types::STRING)]
-    public ?string $password = null;
+    public string $password;
 
-    public function __construct(string $email)
+    public function __construct(string $email, string $password)
     {
         $this->email = $email;
+        $this->password = $password;
     }
 }

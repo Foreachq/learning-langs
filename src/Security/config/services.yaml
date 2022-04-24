@@ -7,4 +7,4 @@ services:
 
   App\Security\:
     resource: '../'
-    exclude: [ '../Entity/' ]
+    exclude: [ '../Entity/', '../Model/' ]
