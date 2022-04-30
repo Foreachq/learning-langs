@@ -16,10 +16,14 @@ RUN apk update \
 
 ARG LINUX_USER_ID
 
+COPY --chown=$LINUX_USER_ID:$LINUX_USER_ID ./ /srv/app/
+
 RUN addgroup --gid $LINUX_USER_ID docker \
     && adduser --uid $LINUX_USER_ID --ingroup docker --home /home/docker --shell /bin/zsh --disabled-password --gecos "" docker
 
 USER $LINUX_USER_ID
+
+RUN git config --global --add safe.directory /srv/app
 
 ARG COMPOSER_GITHUB_TOKEN
 
