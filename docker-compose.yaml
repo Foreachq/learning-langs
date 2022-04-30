@@ -20,6 +20,7 @@ services:
       context: .
       dockerfile: .docker/php/Dockerfile
       args:
+#        SSH_PUBLIC_AUTH_KEY: ${SSH_PUBLIC_AUTH_KEY}
         COMPOSER_GITHUB_TOKEN: ${COMPOSER_GITHUB_TOKEN}
         LINUX_USER_ID: ${LINUX_USER_ID}
     environment:
@@ -32,6 +33,9 @@ services:
       - ~/.ssh/:/home/docker/.ssh
       - ./.docker/php/php.ini:/usr/local/etc/php/php.ini
       - ./.docker/.zsh_history:/home/docker/.zsh_history
+      - ./:/srv/app
+#    ports:
+#      - '2233:22'
     restart: always
 
   nginx:
