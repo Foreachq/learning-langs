@@ -1,4 +1,4 @@
-FROM tunet/php:8.1.4-fpm-alpine3.15
+FROM tunet/php:8.1.5-fpm-alpine3.15
 
 RUN apk update \
     && apk add --no-cache --virtual .build-deps \
