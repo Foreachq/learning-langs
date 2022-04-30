@@ -32,6 +32,7 @@ final class RegistrationController extends AbstractController
     public function store(Request $request): RedirectResponse
     {
         $registration = $this->serializer->denormalize($request->request->all(), Registration::class);
+
         ($this->handler)($registration);
 
         return $this->redirectToRoute('security_login');
