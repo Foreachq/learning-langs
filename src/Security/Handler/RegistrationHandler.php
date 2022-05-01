@@ -21,17 +21,20 @@ final class RegistrationHandler
 
     public function __invoke(Registration $registration): void
     {
-        $fakeUser = new class implements PasswordAuthenticatedUserInterface {
+        $hashedPassword = $this->hasher->hashPassword($this->getFakeUser(), $registration->password);
+
+        $user = $this->userFactory->createByEmailAndPassword($registration->email, $hashedPassword);
+
+        $this->userRepository->save($user);
+    }
+
+    private function getFakeUser(): PasswordAuthenticatedUserInterface
+    {
+        return new class implements PasswordAuthenticatedUserInterface {
             public function getPassword(): ?string
             {
                 return null;
             }
         };
-
-        $hashedPassword = $this->hasher->hashPassword($fakeUser, $registration->password);
-
-        $user = $this->userFactory->createByEmailAndPassword($registration->email, $hashedPassword);
-
-        $this->userRepository->save($user);
     }
 }
