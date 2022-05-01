@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "eeb50cee5e7b3901a73e41429e295191",
+    "content-hash": "3964b24bb511b3ca6a1b66c51d95c23f",
     "packages": [
         {
             "name": "doctrine/annotations",
@@ -5541,16 +5541,16 @@
         },
         {
             "name": "slevomat/coding-standard",
-            "version": "7.1",
+            "version": "dev-master",
             "source": {
                 "type": "git",
                 "url": "https://github.com/slevomat/coding-standard.git",
-                "reference": "b521bd358b5f7a7d69e9637fd139e036d8adeb6f"
+                "reference": "8c005a3ef09eaf8939745a3ebbdfcf6f03ff3362"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/slevomat/coding-standard/zipball/b521bd358b5f7a7d69e9637fd139e036d8adeb6f",
-                "reference": "b521bd358b5f7a7d69e9637fd139e036d8adeb6f",
+                "url": "https://api.github.com/repos/slevomat/coding-standard/zipball/8c005a3ef09eaf8939745a3ebbdfcf6f03ff3362",
+                "reference": "8c005a3ef09eaf8939745a3ebbdfcf6f03ff3362",
                 "shasum": ""
             },
             "require": {
@@ -5562,12 +5562,13 @@
             "require-dev": {
                 "phing/phing": "2.17.2",
                 "php-parallel-lint/php-parallel-lint": "1.3.2",
-                "phpstan/phpstan": "1.4.10|1.5.2",
+                "phpstan/phpstan": "1.4.10|1.6.0",
                 "phpstan/phpstan-deprecation-rules": "1.0.0",
-                "phpstan/phpstan-phpunit": "1.0.0|1.1.0",
-                "phpstan/phpstan-strict-rules": "1.1.0",
-                "phpunit/phpunit": "7.5.20|8.5.21|9.5.19"
+                "phpstan/phpstan-phpunit": "1.0.0|1.1.1",
+                "phpstan/phpstan-strict-rules": "1.2.0",
+                "phpunit/phpunit": "7.5.20|8.5.21|9.5.20"
             },
+            "default-branch": true,
             "type": "phpcodesniffer-standard",
             "extra": {
                 "branch-alias": {
@@ -5586,7 +5587,7 @@
             "description": "Slevomat Coding Standard for PHP_CodeSniffer complements Consistence Coding Standard by providing sniffs with additional checks.",
             "support": {
                 "issues": "https://github.com/slevomat/coding-standard/issues",
-                "source": "https://github.com/slevomat/coding-standard/tree/7.1"
+                "source": "https://github.com/slevomat/coding-standard/tree/master"
             },
             "funding": [
                 {
@@ -5598,7 +5599,7 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2022-03-29T12:44:16+00:00"
+            "time": "2022-04-28T12:46:27+00:00"
         },
         {
             "name": "squizlabs/php_codesniffer",
@@ -6322,9 +6323,18 @@
             "time": "2022-04-06T06:47:41+00:00"
         }
     ],
-    "aliases": [],
+    "aliases": [
+        {
+            "package": "slevomat/coding-standard",
+            "version": "9999999-dev",
+            "alias": "7.1.0",
+            "alias_normalized": "7.1.0.0"
+        }
+    ],
     "minimum-stability": "stable",
-    "stability-flags": [],
+    "stability-flags": {
+        "slevomat/coding-standard": 20
+    },
     "prefer-stable": true,
     "prefer-lowest": false,
     "platform": {
