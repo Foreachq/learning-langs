@@ -21,7 +21,8 @@ final class RegistrationHandler
 
     public function __invoke(Registration $registration): void
     {
-        $hashedPassword = $this->hasher->hashPassword($this->getFakeUser(), $registration->password);
+        $fakeUser = $this->getFakeUser();
+        $hashedPassword = $this->hasher->hashPassword($fakeUser, $registration->password);
 
         $user = $this->userFactory->createByEmailAndPassword($registration->email, $hashedPassword);
 
