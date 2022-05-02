@@ -15,6 +15,18 @@ docker-down:
 
 docker-restart: docker-up
 
+build: composer warmup migrate
+
+composer:
+	$(env_prefix) composer install --no-interaction
+
+migrate:
+	$(env_prefix) bin/console doctrine:migrations:migrate -n
+
+warmup:
+	$(env_prefix) bin/console cache:clear
+	$(env_prefix) bin/console cache:warmup
+
 lint:
 	$(env_prefix) composer run-script lint
 
