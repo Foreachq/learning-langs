@@ -1,3 +1,11 @@
+detected_OS := $(shell uname 2>/dev/null || echo Unknown)
+ifeq ($(detected_OS), Linux)
+	alpine_count := $(shell cat /etc/os-release | grep alpine -c)
+	ifeq ($(alpine_count), 0)
+		env_prefix := docker-compose exec php
+	endif
+endif
+
 docker-up: docker-down
 	@touch .docker/.zsh_history
 	docker-compose up -d --build
@@ -8,7 +16,7 @@ docker-down:
 docker-restart: docker-up
 
 lint:
-	composer run-script lint
+	$(env_prefix) composer run-script lint
 
 static-analysis:
-	composer run-script static-analysis
+	$(env_prefix) composer run-script static-analysis
