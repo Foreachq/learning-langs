@@ -1,6 +1,6 @@
 <?xml version="1.0"?>
 <psalm
-        errorLevel="2"
+        errorLevel="1"
 >
     <projectFiles>
         <directory name="src"/>
@@ -9,4 +9,7 @@
             <directory name="var"/>
         </ignoreFiles>
     </projectFiles>
+    <plugins>
+        <pluginClass xmlns="https://getpsalm.org/schema/config" class="Psalm\SymfonyPsalmPlugin\Plugin"/>
+    </plugins>
 </psalm>

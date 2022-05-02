@@ -134,6 +134,9 @@
     "phpstan/phpdoc-parser": {
         "version": "1.4.2"
     },
+    "psalm/plugin-symfony": {
+        "version": "v3.1.4"
+    },
     "psr/cache": {
         "version": "2.0.0"
     },

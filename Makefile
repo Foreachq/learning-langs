@@ -15,6 +15,9 @@ docker-down:
 
 docker-restart: docker-up
 
+php:
+	docker-compose exec php zsh
+
 build: composer warmup migrate
 
 composer:

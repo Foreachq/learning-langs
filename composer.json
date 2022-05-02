@@ -25,6 +25,7 @@
         "symfony/yaml": "5.4.*"
     },
     "require-dev": {
+        "psalm/plugin-symfony": "^3.1",
         "slevomat/coding-standard": "dev-master#8c005a3ef09eaf8939745a3ebbdfcf6f03ff3362 as 7.1.0",
         "squizlabs/php_codesniffer": "^3.6",
         "symfony/maker-bundle": "^1.38",
