@@ -5,11 +5,10 @@ declare(strict_types=1);
 namespace App\Security\Controller;
 
 use LogicException;
-use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\Routing\Annotation\Route;
 
 #[Route('/logout', name: 'security_logout')]
-final class LogoutController extends AbstractController
+final class LogoutController
 {
     public function __invoke(): void
     {

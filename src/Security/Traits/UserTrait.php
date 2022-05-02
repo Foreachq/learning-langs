@@ -20,6 +20,7 @@ trait UserTrait
         throw new RuntimeException(sprintf('Method "getUsername" not supported in "%s"', self::class));
     }
 
+    /** @return string[] */
     public function getRoles(): array
     {
         return ['ROLE_USER'];

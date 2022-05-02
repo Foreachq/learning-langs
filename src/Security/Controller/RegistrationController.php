@@ -4,9 +4,9 @@ declare(strict_types=1);
 
 namespace App\Security\Controller;
 
+use App\Core\View;
 use App\Security\Handler\RegistrationHandler;
 use App\Security\Model\Registration;
-use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\RedirectResponse;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -14,18 +14,19 @@ use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\Serializer\Normalizer\DenormalizerInterface;
 
 #[Route('/registration')]
-final class RegistrationController extends AbstractController
+final class RegistrationController
 {
     public function __construct(
         private readonly DenormalizerInterface $serializer,
         private readonly RegistrationHandler $handler,
+        private readonly View $view,
     ) {
     }
 
     #[Route('/create', name: 'security_registration_create', methods: Request::METHOD_GET)]
     public function create(): Response
     {
-        return $this->render('@security/registration.html.twig');
+        return $this->view->render('@security/registration.html.twig');
     }
 
     #[Route('/', name: 'security_registration_store', methods: Request::METHOD_POST)]
@@ -35,6 +36,6 @@ final class RegistrationController extends AbstractController
 
         ($this->handler)($registration);
 
-        return $this->redirectToRoute('security_login');
+        return $this->view->redirectToRoute('security_login');
     }
 }

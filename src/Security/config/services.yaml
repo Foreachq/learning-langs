@@ -7,4 +7,11 @@ services:
 
   App\Security\:
     resource: '../'
-    exclude: [ '../Entity/', '../Model/' ]
+    exclude:
+      - '../Entity/'
+      - '../Model/'
+
+  App\Security\Controller\:
+    resource: '../Controller'
+    tags:
+      - { name: controller.service_arguments }
