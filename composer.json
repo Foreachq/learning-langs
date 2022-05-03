@@ -76,7 +76,7 @@
     ],
     "lint": "phpcs --standard=phpcs.xml .",
     "static-analysis": "psalm --config=psalm.xml",
-    "deptrac": "deptrac analyse --config-file=deptrac.yaml"
+    "deptrac": "deptrac --config-file=deptrac.yaml"
   },
   "conflict": {
     "symfony/symfony": "*"
