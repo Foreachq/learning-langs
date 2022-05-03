@@ -5,3 +5,8 @@ services:
 
   App\Infrastructure\:
     resource: './'
+
+  App\Infrastructure\Controller\:
+    resource: './Controller'
+    tags:
+      - { name: controller.service_arguments }

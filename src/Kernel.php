@@ -7,6 +7,7 @@ namespace App;
 use Symfony\Bundle\FrameworkBundle\Kernel\MicroKernelTrait;
 use Symfony\Component\DependencyInjection\Loader\Configurator\ContainerConfigurator;
 use Symfony\Component\HttpKernel\Kernel as BaseKernel;
+use Symfony\Component\Routing\Loader\Configurator\RoutingConfigurator;
 
 final class Kernel extends BaseKernel
 {
@@ -14,12 +15,12 @@ final class Kernel extends BaseKernel
 
     private function configureContainer(ContainerConfigurator $container): void
     {
-        $configDir = $this->getConfigDir();
+        $container->import("{$this->getConfigDir()}/{packages}/*.yaml");
+        $container->import('./**/services.yaml');
+    }
 
-        $container->import("{$configDir}/{packages}/*.yaml");
-        $container->import("{$configDir}/{packages}/{$this->environment}/*.yaml");
-
-        $container->import("./**/services.yaml");
-        $container->import("./**/{services}_{$this->environment}.yaml");
+    private function configureRoutes(RoutingConfigurator $routes): void
+    {
+        $routes->import('./**/routes.yaml');
     }
 }
