@@ -10,6 +10,7 @@ $bundles = [
     Symfony\Bundle\TwigBundle\TwigBundle::class                      => ['all' => true],
 ];
 
+// check exists require-dev dependencies
 if (class_exists(Symfony\Bundle\WebProfilerBundle\WebProfilerBundle::class)) {
     $bundles = array_merge($bundles, [
         Symfony\Bundle\WebProfilerBundle\WebProfilerBundle::class => ['dev' => true, 'test' => true],
