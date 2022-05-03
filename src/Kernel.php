@@ -16,6 +16,7 @@ final class Kernel extends BaseKernel
     private function configureContainer(ContainerConfigurator $container): void
     {
         $container->import("{$this->getConfigDir()}/{packages}/*.yaml");
+        $container->import("{$this->getConfigDir()}/{packages}/{$this->environment}/*.yaml");
         $container->import('./**/services.yaml');
     }
 
