@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace App\Security\Controller;
 
-use App\Infrastructure\View;
+use App\Infrastructure\Util\View;
 use App\Security\Handler\RegistrationHandler;
 use App\Security\Model\Registration;
 use Symfony\Component\HttpFoundation\RedirectResponse;

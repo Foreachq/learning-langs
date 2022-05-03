@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace App\Security\Controller;
 
-use App\Infrastructure\View;
+use App\Infrastructure\Util\View;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\Security\Http\Authentication\AuthenticationUtils;
