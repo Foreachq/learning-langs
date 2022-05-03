@@ -4,12 +4,12 @@ services:
     autoconfigure: true
 
   App\Security\:
-    resource: '../'
+    resource: './'
     exclude:
-      - '../Entity/'
-      - '../Model/'
+      - './Entity/'
+      - './Model/'
 
   App\Security\Controller\:
-    resource: '../Controller'
+    resource: './Controller'
     tags:
       - { name: controller.service_arguments }

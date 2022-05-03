@@ -19,7 +19,7 @@ final class Kernel extends BaseKernel
         $container->import("{$configDir}/{packages}/*.yaml");
         $container->import("{$configDir}/{packages}/{$this->environment}/*.yaml");
 
-        $container->import("./**/config/services.yaml");
-        $container->import("./**/config/{services}_{$this->environment}.yaml");
+        $container->import("./**/services.yaml");
+        $container->import("./**/{services}_{$this->environment}.yaml");
     }
 }

@@ -3,5 +3,5 @@ services:
     autowire: true
     autoconfigure: true
 
-  App\Core\:
-    resource: '../'
+  App\Infrastructure\:
+    resource: './'
