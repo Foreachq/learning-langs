@@ -1,0 +1,10 @@
+parameters:
+  paths:
+    - ./src
+
+  layers:
+    - { name: Infrastructure, collectors: [ { type: className, regex: ^App\\Infrastructure\\ } ] }
+    - { name: Security,       collectors: [ { type: className, regex: ^App\\Security\\ } ] }
+
+  ruleset:
+    Security: [ Infrastructure ]

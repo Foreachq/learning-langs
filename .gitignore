@@ -13,5 +13,9 @@
 /.phpcs-cache
 ###< squizlabs/php_codesniffer ###
 
+###> qossmic/deptrac-shim ###
+/.deptrac.cache
+###< qossmic/deptrac-shim ###
+
 /.docker/.zsh_history
 /.idea/
