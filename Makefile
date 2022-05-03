@@ -24,7 +24,7 @@ composer:
 	$(env_prefix) composer install --no-interaction
 
 migrate:
-	$(env_prefix) bin/console doctrine:migrations:migrate -n
+	$(env_prefix) bin/console doctrine:migrations:migrate --no-interaction
 
 warmup:
 	$(env_prefix) bin/console cache:clear
