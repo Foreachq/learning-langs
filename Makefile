@@ -20,8 +20,13 @@ php:
 
 build: composer warmup migrate
 
+build-prod: composer-prod warmup migrate
+
 composer:
 	$(env_prefix) composer install --no-interaction
+
+composer-prod:
+	$(env_prefix) composer install --no-dev --optimize-autoloader --no-interaction
 
 migrate:
 	$(env_prefix) bin/console doctrine:migrations:migrate --no-interaction
