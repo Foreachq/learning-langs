@@ -18,6 +18,9 @@ docker-restart: docker-up
 php:
 	docker-compose exec php zsh
 
+logs:
+	docker-compose logs php --follow
+
 build: composer warmup migrate
 
 build-prod: composer-prod warmup migrate
