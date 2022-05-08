@@ -1,0 +1,3 @@
+sentry:
+  register_error_listener: false
+  dsn: '%env(SENTRY_DSN)%'
