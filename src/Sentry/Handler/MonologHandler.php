@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace App\Infrastructure\Sentry;
+namespace App\Sentry\Handler;
 
 use Monolog\Formatter\LineFormatter;
 use Monolog\Handler\AbstractProcessingHandler;
@@ -20,7 +20,7 @@ use function array_filter;
 use function array_merge;
 use function array_reduce;
 
-final class SentryHandler extends AbstractProcessingHandler
+final class MonologHandler extends AbstractProcessingHandler
 {
     private array $breadcrumbsBuffer = [];
 

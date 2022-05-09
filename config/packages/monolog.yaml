@@ -2,18 +2,18 @@ monolog:
   channels:
     - deprecation
   handlers:
-    main:
+    sentry:
       type: fingers_crossed
       action_level: !php/const Monolog\Logger::ERROR
       excluded_http_codes: [ 403, 404, 405 ]
       channels: [ "!deprecation" ]
-      handler: deduplicated
-    deduplicated:
+      handler: sentry_deduplicated
+    sentry_deduplicated:
       type: deduplication
-      handler: sentry
-    sentry:
+      handler: sentry_handler
+    sentry_handler:
       type: service
-      id: App\Infrastructure\Sentry\SentryHandler
+      id: App\Sentry\Handler\MonologHandler
 
 #monolog:
 #    channels:
