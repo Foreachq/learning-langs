@@ -10,3 +10,8 @@ services:
     resource: './Controller'
     tags:
       - { name: controller.service_arguments }
+
+  Monolog\Handler\TelegramBotHandler:
+    arguments:
+      $apiKey: '%env(TELEGRAM_BOT_KEY)%'
+      $channel: '%env(TELEGRAM_CHANNEL)%'
