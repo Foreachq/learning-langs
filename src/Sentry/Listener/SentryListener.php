@@ -37,7 +37,7 @@ final class SentryListener implements EventSubscriberInterface
             return;
         }
 
-        $userData['ip_address'] = $event->getRequest()->getClientIp();
+        $userData = ['ip_address' => $event->getRequest()->getClientIp()];
         $user = $this->security->getUser();
 
         if ($user) {
