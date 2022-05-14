@@ -7,7 +7,6 @@ RUN apk update \
         make \
         git \
         zsh \
-        openssh-client \
     && pecl install xdebug-3.1.4 \
     && docker-php-ext-enable xdebug \
     && pecl clear-cache \
