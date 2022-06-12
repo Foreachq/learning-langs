@@ -2,6 +2,7 @@ twig:
     paths:
         '%kernel.project_dir%/src/Infrastructure/Resources/templates': infrastructure
         '%kernel.project_dir%/src/Security/Resources/templates': security
+        '%kernel.project_dir%/src/Profile/Resources/templates': profile
 
 when@test:
     twig:
