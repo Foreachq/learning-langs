@@ -1,0 +1,14 @@
+services:
+  _defaults:
+    autowire: true
+    autoconfigure: true
+
+  App\Learning\:
+    resource: './'
+    exclude:
+      - './Entity/'
+
+  App\Learning\Controller\:
+    resource: './Controller'
+    tags:
+      - { name: controller.service_arguments }
