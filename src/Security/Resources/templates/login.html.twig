@@ -27,7 +27,7 @@
                             </div>
                             {# showing errors #}
                             <div class="row mb-3">
-                                <label for="password" class="col-md-4 col-form-label text-md-end"></label>
+                                <span class="col-md-4"></span>
                                 <div class="col-md-6">
                                 {% if error %}
                                     <div class="text-danger" role="alert">
@@ -42,8 +42,6 @@
                                     <button type="submit" class="btn btn-primary">Login</button>
                                 </div>
                             </div>
-                            {# If you want to control the URL the user is redirected to on success
-                            <input type="hidden" name="_target_path" value="/account"/> #}
                         </form>
                     </div>
                 </div>
