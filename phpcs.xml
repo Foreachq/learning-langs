@@ -1,5 +1,7 @@
 <?xml version="1.0"?>
 <ruleset name="Learning languages coding standard">
+    <arg name="extensions" value="php"/>
+
     <rule ref="PSR12"/>
     <rule ref="Generic.Formatting.SpaceAfterCast.NoSpace"/>
     <rule ref="Squiz.Arrays.ArrayDeclaration">
