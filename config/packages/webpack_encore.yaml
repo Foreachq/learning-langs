@@ -1,0 +1,11 @@
+webpack_encore:
+    # The path where Encore is building the assets - i.e. Encore.setOutputPath()
+    output_path: '%kernel.project_dir%/public/build'
+    script_attributes:
+        defer: true
+    # Set to true to throw an exception if the entrypoints.json file is missing or an entry is missing from the data
+    strict_mode: false
+
+framework:
+    assets:
+        json_manifest_path: '%kernel.project_dir%/public/build/manifest.json'
