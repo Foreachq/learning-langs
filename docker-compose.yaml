@@ -45,6 +45,39 @@ services:
       - '${WEBSERVER_EXTERNAL_PORT}:80'
     restart: always
 
+  encore-watcher:
+    image: node:16.15-alpine3.15
+    command: npm run watch
+    working_dir: /srv/app
+    user: '${LINUX_USER_ID}:${LINUX_USER_ID}'
+    volumes:
+      - ./:/srv/app
+    tty: true
+    restart: always
+
+  npm-installer:
+    image: node:16.15-alpine3.15
+    command: npm ci
+    working_dir: /srv/app
+    user: '${LINUX_USER_ID}:${LINUX_USER_ID}'
+    volumes:
+      - ./:/srv/app
+    tty: true
+
+  php-builder:
+    build:
+      context: .
+      dockerfile: .docker/php/Dockerfile
+      args:
+        COMPOSER_GITHUB_TOKEN: ${COMPOSER_GITHUB_TOKEN}
+        LINUX_USER_ID: ${LINUX_USER_ID}
+    command: make build
+    depends_on:
+      - database
+    volumes:
+      - ./.docker/php/php.ini:/usr/local/etc/php/php.ini
+      - ./:/srv/app
+
 volumes:
   pgdata_14_2:
 
