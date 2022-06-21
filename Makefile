@@ -46,3 +46,4 @@ static-analysis:
 
 deptrac:
 	$(env_prefix) composer run-script deptrac
+
