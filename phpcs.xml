@@ -13,7 +13,11 @@
     </rule>
 
     <config name="installed_paths" value="../../slevomat/coding-standard"/>
-    <rule ref="SlevomatCodingStandard.Namespaces.UnusedUses.UnusedUse"/>
+    <rule ref="SlevomatCodingStandard.Namespaces.UnusedUses">
+        <properties>
+            <property name="searchAnnotations" type="bool" value="true"/>
+        </properties>
+    </rule>
     <rule ref="SlevomatCodingStandard.Namespaces.AlphabeticallySortedUses"/>
     <rule ref="SlevomatCodingStandard.TypeHints.DeclareStrictTypes">
         <properties>
