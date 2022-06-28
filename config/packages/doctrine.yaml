@@ -8,6 +8,8 @@ doctrine:
         dbname: '%env(resolve:DB_NAME)%'
         user: '%env(resolve:DB_USER)%'
         password: '%env(resolve:DB_PASSWORD)%'
+        mapping_types:
+            gender_enum: string
 
     orm:
         auto_generate_proxy_classes: '%kernel.debug%'
@@ -20,3 +22,9 @@ doctrine:
                 dir: '%kernel.project_dir%/src/Security/Entity'
                 prefix: 'App\Security\Entity'
                 alias: Security
+            Profile:
+                type: attribute
+                is_bundle: false
+                dir: '%kernel.project_dir%/src/Profile/Entity'
+                prefix: 'App\Profile\Entity'
+                alias: Profile

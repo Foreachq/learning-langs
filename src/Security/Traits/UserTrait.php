@@ -26,7 +26,7 @@ trait UserTrait
         return ['ROLE_USER'];
     }
 
-    public function getPassword(): string
+    public function getPassword(): ?string
     {
         return $this->password;
     }

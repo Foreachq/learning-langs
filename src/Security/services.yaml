@@ -7,7 +7,6 @@ services:
     resource: './'
     exclude:
       - './Entity/'
-      - './Model/'
 
   App\Security\Controller\:
     resource: './Controller'
