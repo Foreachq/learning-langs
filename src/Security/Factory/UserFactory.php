@@ -10,6 +10,10 @@ final class UserFactory
 {
     public function createByEmailAndPassword(string $email, string $password): User
     {
-        return new User($email, $password);
+        $user = new User();
+        $user->setEmail($email);
+        $user->setPassword($password);
+
+        return $user;
     }
 }
