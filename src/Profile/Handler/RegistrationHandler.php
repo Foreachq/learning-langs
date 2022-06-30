@@ -6,6 +6,7 @@ namespace App\Profile\Handler;
 
 use App\Profile\Factory\ProfileFactory;
 use App\Profile\Model\Registration;
+use App\Profile\Service\RegistrationService;
 use App\Security\Factory\UserFactory;
 use App\Security\Repository\UserRepository;
 use Symfony\Component\PasswordHasher\Hasher\UserPasswordHasherInterface;
@@ -17,6 +18,7 @@ final class RegistrationHandler
         private readonly UserFactory $userFactory,
         private readonly ProfileFactory $profileFactory,
         private readonly UserRepository $userRepository,
+        private readonly RegistrationService $registrationService,
     ) {
     }
 
@@ -34,5 +36,11 @@ final class RegistrationHandler
 
         $user->setProfile($profile);
         $this->userRepository->save($user);
+
+        $this->registrationService->sendRegisterEmail(
+            $registration->email,
+            $registration->firstName,
+            $registration->lastName,
+        );
     }
 }

@@ -13,3 +13,8 @@ services:
     resource: './Controller'
     tags:
       - { name: controller.service_arguments }
+
+  App\Profile\Service\RegistrationService:
+    arguments:
+      $emailFrom: '%env(string:MAILER_FROM)%'
+      $host: '%env(string:APP_HOST)%'
