@@ -78,6 +78,10 @@ services:
       - ./.docker/php/php.ini:/usr/local/etc/php/php.ini
       - ./:/srv/app
 
+  mailer:
+    image: schickling/mailcatcher
+    ports: [ "1025", "1080" ]
+
 volumes:
   pgdata_14_2:
 
