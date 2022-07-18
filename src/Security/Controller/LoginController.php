@@ -5,12 +5,13 @@ declare(strict_types=1);
 namespace App\Security\Controller;
 
 use App\Infrastructure\Util\View;
+use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\Security\Http\Authentication\AuthenticationUtils;
 
-#[Route('/login', name: 'security_login')]
-final class LoginController
+#[Route('/login')]
+final class LoginController extends AbstractController
 {
     public function __construct(
         private readonly AuthenticationUtils $authenticationUtils,
@@ -18,6 +19,7 @@ final class LoginController
     ) {
     }
 
+    #[Route('/', name: 'security_login')]
     public function __invoke(): Response
     {
         $error = $this->authenticationUtils->getLastAuthenticationError();

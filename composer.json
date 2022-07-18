@@ -29,7 +29,8 @@
     "symfony/uid": "5.4.*",
     "symfony/validator": "5.4.*",
     "symfony/webpack-encore-bundle": "^1.14",
-    "symfony/yaml": "5.4.*"
+    "symfony/yaml": "5.4.*",
+    "symfonycasts/verify-email-bundle": "^1.10"
   },
   "require-dev": {
     "psalm/plugin-symfony": "^3.1",

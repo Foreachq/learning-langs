@@ -15,3 +15,8 @@ services:
     arguments:
       $apiKey: '%env(TELEGRAM_BOT_KEY)%'
       $channel: '%env(TELEGRAM_CHANNEL)%'
+
+  App\Infrastructure\Service\EmailService:
+    arguments:
+      $emailFrom: '%env(string:MAILER_FROM)%'
+      $host: '%env(string:APP_HOST)%'

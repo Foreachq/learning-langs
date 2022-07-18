@@ -31,7 +31,7 @@
                                 <div class="col-md-6">
                                 {% if error %}
                                     <div class="text-danger" role="alert">
-                                        <strong>{{ error.messageKey|trans(error.messageData, 'security') }}</strong>
+                                        <strong>{{ error.messageKey|raw }}</strong>
                                     </div>
                                 {% endif %}
                                 </div>
