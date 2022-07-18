@@ -35,6 +35,10 @@ class Profile
     #[ORM\OneToOne(inversedBy: 'profile', targetEntity: User::class, cascade: ['persist'])]
     private ?User $user = null;
 
+    #[ORM\Column(type: Types::BOOLEAN, options: ['default' => false])]
+    #[Assert\NotBlank]
+    private bool $isVerified = false;
+
     public const GENDERS = ['male', 'female'];
 
     public function __construct(string $firstName, string $lastName, string $gender)
@@ -95,5 +99,17 @@ class Profile
         $this->gender = $gender;
 
         return $this;
+    }
+
+    public function setIsVerified(bool $isConfirmed): self
+    {
+        $this->isVerified = $isConfirmed;
+
+        return $this;
+    }
+
+    public function isVerified(): bool
+    {
+        return $this->isVerified;
     }
 }

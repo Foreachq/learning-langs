@@ -2,13 +2,14 @@
 
 declare(strict_types=1);
 
-namespace App\Profile\Service;
+namespace App\Infrastructure\Service;
 
 use App\Infrastructure\Factory\EmailFactory;
+use App\Security\Entity\User;
 use Symfony\Component\Mailer\Exception\TransportExceptionInterface;
 use Symfony\Component\Mailer\MailerInterface;
 
-class RegistrationService
+class EmailService
 {
     private string $emailFrom;
     private string $host;
@@ -23,17 +24,19 @@ class RegistrationService
         $this->host = $host;
     }
 
-    public function sendRegisterEmail(string $emailTo, string $firstName, string $lastName): void
+    public function sendConfirmationEmail(User $user, string $confirmationLink): void
     {
+        $profile = $user->getProfile();
         $email = $this->emailFactory->createTemplated(
-            $emailTo,
+            $user->getEmail(),
             $this->emailFrom,
             'Learning Languages registration',
             '@profile/registration_email.html.twig',
             [
-                'user_first_name' => $firstName,
-                'user_last_name'  => $lastName,
-                'host'            => $this->host,
+                'user_first_name'  => $profile->getFirstName(),
+                'user_last_name'   => $profile->getLastName(),
+                'host'             => $this->host,
+                'confirmation_url' => $confirmationLink,
             ],
         );
 

@@ -46,6 +46,7 @@ final class RegistrationController extends AbstractController
             );
 
             $this->registrationHandler->handle($registration);
+            $this->addFlash('success', 'Check your email to confirm your registration');
 
             return $this->redirectToRoute('security_login');
         }

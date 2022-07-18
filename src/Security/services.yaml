@@ -12,6 +12,3 @@ services:
     resource: './Controller'
     tags:
       - { name: controller.service_arguments }
-
-parameters:
-  app.host: '%env(APP_HOST)%'

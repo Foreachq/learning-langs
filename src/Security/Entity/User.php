@@ -39,6 +39,11 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     #[ORM\JoinColumn(name: 'profile_id', referencedColumnName: 'id')]
     private ?Profile $profile = null;
 
+    public function getId(): ?int
+    {
+        return $this->id;
+    }
+
     public function setPassword(string $password): self
     {
         $this->password = $password;
@@ -54,6 +59,7 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     public function setProfile(Profile $profile): self
     {
         $this->profile = $profile;
+        $profile->setUser($this);
 
         return $this;
     }
