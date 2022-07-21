@@ -39,6 +39,22 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     #[ORM\JoinColumn(name: 'profile_id', referencedColumnName: 'id')]
     private ?Profile $profile = null;
 
+    /**
+     * @var string[]
+     */
+    #[ORM\Column(type: Types::JSON)]
+    private array $roles = [];
+
+    public function __construct()
+    {
+        $this->roles[] = 'ROLE_USER';
+    }
+
+    public function getRoles(): array
+    {
+        return $this->roles;
+    }
+
     public function getId(): ?int
     {
         return $this->id;

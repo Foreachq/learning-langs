@@ -1,0 +1,18 @@
+{% extends '@infrastructure/base.html.twig' %}
+
+{% block body %}
+    <main class="py-4 container bg-white rounded-3 mt-5 p-lg-5">
+        <h1 class="mb-5">{{ word.english|upper }}</h1>
+        <h3 class="mb-5">Russian translation: {{ word.russian }}</h3>
+
+        <form class="d-inline-block" action="{{ path('learning_word_update', {'id': word.id}) }}" method="GET">
+            <input type="hidden" name="_csrf_token" value="{{ csrf_token('update-word') }}">
+            <input type="submit" value="Edit" class="btn btn-primary">
+        </form>
+        <form class="d-inline-block" action="{{ path('learning_word_delete', {'id': word.id}) }}" method="POST">
+            <input type="hidden" name="_method" value="DELETE">
+            <input type="hidden" name="_csrf_token" value="{{ csrf_token('delete-word') }}">
+            <input type="submit" value="Delete" class="btn btn-danger">
+        </form>
+    </main>
+{% endblock %}
