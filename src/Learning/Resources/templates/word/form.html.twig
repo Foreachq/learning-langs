@@ -1,0 +1,27 @@
+{{ form_start(form, {'attr': {'class': 'w-50'}}) }}
+<input type="hidden" name="_csrf_token" value="{{ csrf_token('word-new') }}">
+
+<div class="form-group mb-3">
+    <label for="word_english" class="col-form-label text-md-end">English:</label>
+    {{ form_widget(form.english, {'attr': {'class': 'form-control'}}) }}
+    {% if form_errors(form.english) %}
+        <div class="mt-1 text-danger no-bullet-list" role="alert">
+            <small>{{ form_errors(form.english) }}</small>
+        </div>
+    {% endif %}
+</div>
+
+<div class="form-group mb-3">
+    <label for="word_russian" class="col-form-label text-md-end">Russian:</label>
+    {{ form_widget(form.russian, {'attr': {'class': 'form-control'}}) }}
+    {% if form_errors(form.russian) %}
+        <div class="mt-1 text-danger no-bullet-list" role="alert">
+            <small>{{ form_errors(form.russian) }}</small>
+        </div>
+    {% endif %}
+</div>
+
+<div class="form-group mb-0">
+    {{ form_widget(form.submit, {'attr': {'class': 'btn btn-primary'}}) }}
+</div>
+{{ form_end(form) }}
