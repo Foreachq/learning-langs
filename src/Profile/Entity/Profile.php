@@ -4,8 +4,11 @@ declare(strict_types=1);
 
 namespace App\Profile\Entity;
 
+use App\Learning\Entity\WordProgress;
 use App\Profile\Repository\ProfileRepository;
 use App\Security\Entity\User;
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\DBAL\Types\Types;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Validator\Constraints as Assert;
@@ -35,6 +38,12 @@ class Profile
     #[ORM\OneToOne(inversedBy: 'profile', targetEntity: User::class, cascade: ['persist'])]
     private ?User $user = null;
 
+    /**
+     * @var Collection<int, WordProgress>
+     */
+    #[ORM\OneToMany(mappedBy: 'profile', targetEntity: WordProgress::class, cascade: ['persist'])]
+    private Collection $wordsProgress;
+
     #[ORM\Column(type: Types::BOOLEAN, options: ['default' => false])]
     #[Assert\NotBlank]
     private bool $isVerified = false;
@@ -46,6 +55,16 @@ class Profile
         $this->firstName = $firstName;
         $this->lastName = $lastName;
         $this->gender = $gender;
+
+        $this->wordsProgress = new ArrayCollection();
+    }
+
+    /**
+     * @return Collection<int, WordProgress>
+     */
+    public function getWordsProgress(): Collection
+    {
+        return $this->wordsProgress;
     }
 
     public function getId(): ?int
