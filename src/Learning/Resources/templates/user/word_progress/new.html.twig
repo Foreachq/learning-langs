@@ -1,0 +1,38 @@
+{% extends '@learning/user/word_progress/words_table.html.twig' %}
+
+{% block table_header %}
+    Add new words
+{% endblock %}
+
+{% block table %}
+    <table class="table me-2">
+        <thead>
+        <tr>
+            <th>English</th>
+            <th>Russian</th>
+            <th>Actions</th>
+        </tr>
+        </thead>
+        <tbody>
+        {% for word in words %}
+            <tr>
+                <td>
+                    {{ word.english }}
+                </td>
+                <td>
+                    {{ word.russian }}
+                </td>
+                <td>
+                    <form class="d-inline-block" action="{{ path('learning_word_progress_new', {'id': word.id}) }}" method="POST">
+                        <input type="hidden" name="_csrf_token" value="{{ csrf_token('add-word') }}">
+                        <input type="submit" value="Start Learning" class="btn btn-sm btn-primary">
+                    </form>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+    <div class="navigation">
+        {{ knp_pagination_render(words) }}
+    </div>
+{% endblock %}

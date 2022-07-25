@@ -30,7 +30,7 @@ class WordController extends AbstractController
             $request->query->getInt('page', 1),
         );
 
-        return $this->render('@learning/word/index.html.twig', compact('words'));
+        return $this->render('@learning/admin/word/index.html.twig', compact('words'));
     }
 
     #[Route(
@@ -43,7 +43,7 @@ class WordController extends AbstractController
     {
         $word = $this->wordRepository->requireOne($id);
 
-        return $this->render('@learning/word/show.html.twig', compact('word'));
+        return $this->render('@learning/admin/word/show.html.twig', compact('word'));
     }
 
     #[Route(
@@ -69,7 +69,7 @@ class WordController extends AbstractController
             return $this->redirectToRoute('learning_word_show', ['id' => $word->getId()]);
         }
 
-        return $this->renderForm('@learning/word/update.html.twig', compact('form'));
+        return $this->renderForm('@learning/admin/word/update.html.twig', compact('form'));
     }
 
     #[Route(
@@ -92,7 +92,7 @@ class WordController extends AbstractController
             return $this->redirectToRoute('learning_word_index');
         }
 
-        return $this->renderForm('@learning/word/new.html.twig', compact('form'));
+        return $this->renderForm('@learning/admin/word/new.html.twig', compact('form'));
     }
 
     #[Route(

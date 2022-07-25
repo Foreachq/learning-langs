@@ -9,6 +9,7 @@ use App\Security\Repository\UserRepository;
 use App\Security\Traits\UserTrait;
 use Doctrine\DBAL\Types\Types;
 use Doctrine\ORM\Mapping as ORM;
+use RuntimeException;
 use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
 use Symfony\Component\Security\Core\User\PasswordAuthenticatedUserInterface;
 use Symfony\Component\Security\Core\User\UserInterface;
@@ -67,8 +68,12 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
         return $this;
     }
 
-    public function getProfile(): ?Profile
+    public function getProfile(): Profile
     {
+        if (null === $this->profile) {
+            throw new RuntimeException('Profile was not initialized');
+        }
+
         return $this->profile;
     }
 

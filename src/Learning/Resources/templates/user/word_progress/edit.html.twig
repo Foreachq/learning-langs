@@ -1,0 +1,42 @@
+{% extends '@learning/user/word_progress/words_table.html.twig' %}
+
+{% block table_header %}
+    Edit learning list
+{% endblock %}
+
+{% block upper_table_button %}
+    <a href="{{ path('learning_word_progress_new') }}" class="btn btn-primary ml-auto">Add new word</a>
+{% endblock %}
+
+{% block table %}
+    <form action="{{ path('learning_word_progress_edit') }}" method="post">
+        <input type="hidden" name="_csrf_token" value="{{ csrf_token('activate-word-learning') }}">
+        <input type="hidden" name="_method" value="PATCH">
+        <table class="table me-2">
+            <thead>
+            <tr>
+                <th>English</th>
+                <th>Russian</th>
+                <th>Active</th>
+            </tr>
+            </thead>
+            <tbody>
+            {% for progress in wordsProgress %}
+                {% set word = progress.word %}
+                <tr>
+                    <td>
+                        {{ word.english }}
+                    </td>
+                    <td>
+                        {{ word.russian }}
+                    </td>
+                    <td>
+                       <input class="form-check" type="checkbox" name="{{ word.id }}" {{ progress.active ? 'checked' : ''}}>
+                    </td>
+                </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+        <input type="submit" value="Submit" class="btn btn-primary ml-auto">
+    </form>
+{% endblock %}
