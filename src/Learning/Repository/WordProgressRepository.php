@@ -26,7 +26,7 @@ final class WordProgressRepository extends ServiceEntityRepository
         parent::__construct($registry, WordProgress::class);
     }
 
-    public function getActiveProgressesByProfile(Profile $profile, int $page, ?int $limit = null): PaginationInterface
+    public function getActiveProgressesPaginated(Profile $profile, int $page, ?int $limit = null): PaginationInterface
     {
         $qb = $this->createQueryBuilder('progress')
             ->where('progress.active = TRUE')
@@ -37,6 +37,21 @@ final class WordProgressRepository extends ServiceEntityRepository
         $query = $qb->getQuery();
 
         return $this->paginator->paginate($query, $page, $limit);
+    }
+
+    /**
+     * @return array<WordProgress>
+     */
+    public function getActiveProgresses(Profile $profile): array
+    {
+        $qb = $this->createQueryBuilder('progress')
+            ->where('progress.active = TRUE')
+            ->andWhere('progress.profile = :profile_id')
+            ->setParameter('profile_id', $profile->getId())
+            ->orderBy('progress.id', 'ASC');
+
+        /** @var array<WordProgress> */
+        return $qb->getQuery()->getResult();
     }
 
     public function save(WordProgress $word): void

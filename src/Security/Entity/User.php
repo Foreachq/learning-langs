@@ -71,7 +71,7 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     public function getProfile(): Profile
     {
         if (null === $this->profile) {
-            throw new RuntimeException('Profile was not initialized');
+            throw new RuntimeException('Profile was not initialized yet.');
         }
 
         return $this->profile;

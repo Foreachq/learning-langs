@@ -99,6 +99,13 @@ class WordProgress
         return $this;
     }
 
+    public function addAttemptCount(): WordProgress
+    {
+        $this->attemptsCount++;
+
+        return $this;
+    }
+
     public function getCorrectAnswersCount(): int
     {
         return $this->correctAnswersCount;
@@ -107,6 +114,13 @@ class WordProgress
     public function setCorrectAnswersCount(int $correctAnswersCount): WordProgress
     {
         $this->correctAnswersCount = $correctAnswersCount;
+
+        return $this;
+    }
+
+    public function addCorrectAnswersCount(): WordProgress
+    {
+        $this->correctAnswersCount++;
 
         return $this;
     }
