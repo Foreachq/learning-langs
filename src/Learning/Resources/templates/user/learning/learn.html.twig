@@ -1,0 +1,21 @@
+{% extends '@infrastructure/base.html.twig' %}
+
+{% block body %}
+    <div class="py-4 container bg-white rounded-3 p-5 pt-4 mt-5">
+        <h1>Word: {{ (isWordInEnglish ? word.english : word.russian )| upper }}</h1>
+        <form class="d-inline-block" action="{{ path('learning_learn', {'word_id': word.id}) }}" method="POST">
+            <input type="hidden" name="_csrf_token" value="{{ csrf_token('learning') }}">
+            <input type="hidden" name="is_word_in_english" value="{{ isWordInEnglish ? 1 : 0 }}">
+            <div class="mt-3 mb-2">Choose correct translation: </div>
+            {% for answer in answers %}
+                <div class="form-check mb-1">
+                    <input class="form-check-input" type="radio" name="answer_id" id="{{ answer.id }}" value="{{ answer.id }}">
+                    <label class="form-check-label" for="{{ answer.id }}">
+                        {{ isWordInEnglish ? answer.russian : answer.english }}
+                    </label>
+                </div>
+            {% endfor %}
+            <input type="submit" value="Submit" class="btn btn-primary mt-3">
+        </form>
+    </div>
+{% endblock %}

@@ -12,3 +12,9 @@ services:
     resource: './Controller'
     tags:
       - { name: controller.service_arguments }
+
+  App\Learning\Service\LearningStrategy\LearningStrategyContext:
+    calls:
+      - method: addStrategy
+        arguments:
+          - '@App\Learning\Service\LearningStrategy\Strategy\WeightedRandomStrategy'

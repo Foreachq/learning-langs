@@ -73,6 +73,26 @@ final class WordRepository extends ServiceEntityRepository
         return $word;
     }
 
+    /**
+     * @return array<Word>
+     */
+    public function getRandomWords(int $count, Word $except = null): array
+    {
+        $qb = $this->_em->createQueryBuilder();
+        $qb->select('words')
+            ->from(Word::class, 'words')
+            ->orderBy('RANDOM()')
+            ->setMaxResults($count);
+
+        if (null !== $except) {
+            $qb->add('where', 'words.id != :id')
+                ->setParameter('id', $except->getId());
+        }
+
+        /** @var array<Word> */
+        return $qb->getQuery()->execute();
+    }
+
     public function getNotLearningWordsByProfile(
         Profile $profile,
         int $page,

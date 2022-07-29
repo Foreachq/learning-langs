@@ -35,7 +35,7 @@ class WordProgressController extends AbstractController
     )]
     public function index(Request $request, WordProgressRepository $progressRepository): Response
     {
-        $progresses = $progressRepository->getActiveProgressesByProfile(
+        $progresses = $progressRepository->getActiveProgressesPaginated(
             $this->getProfile(),
             $request->query->getInt('page', 1),
         );
