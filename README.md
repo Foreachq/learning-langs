@@ -1,27 +1,50 @@
-# Запустить проект для локальной разработки (для OS Ubuntu)
+# Learning Languages
 
-1. Установить утилиту make
-   ```bash
-   $ sudo apt-get update
-   
-   $ sudo apt-get install build-essential
-   ```
+«Learning Languages» — a site where you can learn new languages.
 
-2. [Установить docker и docker-compose](docs/docker-install.md)
+## Description
 
-3. Скорпировать конфиграционный файл (и при необходимости сконфигурировать переменные для docker)
-   ```bash
-   $ cp .env.dist .env
-   ```
+Application is build in the form of a site where you can add new words for learning, make it active/inactive and learn words with smart algorithm of words displaying. Registration and authentication are required to work with the system.
 
-4. Запустить docker-контейнеры
-   ```bash
-   $ make docker-up
-   ```
+Project features:
+- Authentication, policy management;
+- Additing words for learning on the learning page;
+- PostgreSQL storage for added entities;
+- Docker containerization for easy to run local instances.
 
-5. Зайти в php-контейнер можно следующим образом
-   ```bash
-   $ make php
-   ```
+## Requirements
 
-6. Открыть проект в браузере можно по ссылке: http://127.0.0.1:8041
+- docker-compose
+
+## Installation
+
+- Download package
+
+``` bash
+git clone https://github.com/Foreachq/learning-langs
+```
+
+- Setup project
+
+```bash
+cp .env.dist .env
+```
+
+- Run local instance
+
+```bash
+make docker-up    # starting on http://127.0.0.1:8041
+```
+
+- Stop local instance
+
+``` bash
+make docker-down
+```
+
+You can get into php container with:
+
+```bash
+make php
+```
+
